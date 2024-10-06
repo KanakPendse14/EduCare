@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import '../css/login.css'; // Include your CSS for custom styling
+import '../css/login.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     // Handle login logic here (e.g., API calls)
     console.log('Email:', email, 'Password:', password);
+    if (email === 'test@gmail.com' && password === '123') {
+      navigate('/listenandlearn'); // Navigate to ListenandLearnPage
+  } else {
+      console.log('Invalid credentials');// Handle invalid login
+  }
+    
   };
 
   return (

@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(250, 135, 135);
+  background-color: rgba(237, 247, 124, 0.901);
 }
 
 /* Login box styling */
