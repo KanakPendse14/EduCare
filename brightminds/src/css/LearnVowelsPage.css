@@ -1,0 +1,92 @@
+/* .vowels-page {
+    text-align: center;
+    background-color: #a4d3fd;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vowel-slide {
+    background-color: #ffd700;
+    padding: 100px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+
+.vowels-page {
+    text-align: center;
+    background-color: #a4d3fd; /* Light blue background */
+    height: 100vh; /* Full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed for positioning the arrows */
+}
+
+.vowel-slide {
+    background-color: #ffd700; /* Gold background for slides */
+    padding: 50px; /* Adjust as needed for image size */
+    width: 80%; /* Adjust for larger width */
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh; /* Takes most of the screen height */
+}
+
+.vowel-slide img {
+    width: 300px; /* Adjust for image size */
+    height: auto;
+}
+
+.vowel-slide h2 {
+    font-size: 150px; /* Large text size */
+    color: #000000; /* Text color */
+    margin: 0;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #1e90ff; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

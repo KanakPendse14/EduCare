@@ -1,13 +1,3 @@
-// import React from 'react';
-
-// const ListenandLearnPage = () => {
-//     return <h1>Hello, this is the Listen and Learn page!</h1>;
-// };
-
-// export default ListenandLearnPage;
-
-
-// ListenandLearnPage.js
 import React from 'react';
 import '../css/ListenandLearn.css';
 import CourseBlock from '../components/ListeningSkillsset'; // Adjust the path as necessary
@@ -18,16 +8,19 @@ const ListenandLearnPage = () => {
             <h1>Listen and Learn</h1>
             <div className="courses-container">
                 <CourseBlock 
-                    title="2 Words" 
-                    description="Learn and practice 2-word combinations."
+                    title="Vowels" 
+                    description="Let's Learn and practice Vowels."
+                    path = "/vowels"
                 />
                 <CourseBlock 
-                    title="4 Words" 
-                    description="Learn and practice 4-word phrases."
+                    title="3 Letter Words" 
+                    description="Learn and practice 3-Letter Words."
+                    path= "/threeletterwords"
                 />
                 <CourseBlock 
-                    title="Small Sentences" 
+                    title="Every Day Phreses" 
                     description="Explore small sentences for basic comprehension."
+                    path="/Everydaysentences"
                 />
                 <CourseBlock 
                     title="Small Stories" 
@@ -43,3 +36,49 @@ const ListenandLearnPage = () => {
 };
 
 export default ListenandLearnPage;
+
+
+// import React from 'react';
+// import '../css/ListenandLearn.css';
+// import CourseBlock from '../components/ListeningSkillsset'; // Adjust the path as necessary
+// import Sidebar from '../components/Sidebar'; // Adjust the path as necessary
+
+// const ListenandLearnPage = () => {
+//     // Example student data
+//     const studentName = "John Doe"; // Replace with dynamic data as necessary
+//     const studentProfilePic = "path/to/profile-pic.jpg"; // Replace with actual profile picture path
+
+//     return (
+//         <div className="listen-and-learn-page">
+//             <Sidebar studentName={studentName} studentProfilePic={studentProfilePic} />
+//             <div className="courses-container">
+//                 <h1>Listen and Learn</h1>
+//                 <CourseBlock 
+//                     title="Vowels" 
+//                     description="Let's Learn and practice Vowels."
+//                     path="/vowels"
+//                 />
+//                 <CourseBlock 
+//                     title="3 Letter Words" 
+//                     description="Learn and practice 3-Letter Words."
+//                     path="/threeletterwords"
+//                 />
+//                 <CourseBlock 
+//                     title="Every Day Phrases" 
+//                     description="Explore small sentences for basic comprehension."
+//                     path="/Everydaysentences"
+//                 />
+//                 <CourseBlock 
+//                     title="Small Stories" 
+//                     description="Engage with short stories to enhance listening skills."
+//                 />
+//                 <CourseBlock 
+//                     title="Large Stories" 
+//                     description="Dive into larger stories for advanced understanding."
+//                 />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default ListenandLearnPage;

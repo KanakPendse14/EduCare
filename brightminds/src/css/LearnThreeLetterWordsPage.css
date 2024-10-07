@@ -1,0 +1,84 @@
+/* LearnThreeLetterWordsPage.css */
+
+.three-letter-words-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure it takes full height */
+    background-color: #f0f8ff; /* Light background color */
+    font-family: 'Arial', sans-serif; /* Use a clean font */
+    padding: 20px; /* Add padding to avoid touching the edges */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.word-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    background-color: #ffffff; /* White background for the slide */
+    width: 90%; /* Take most of the width */
+    max-width: 600px; /* Set a maximum width */
+    margin-bottom: 20px; /* Spacing below the slide */
+}
+
+h1 {
+    color: #4a4a4a; /* Darker color for the header */
+    margin-bottom: 10px;
+    font-size: 2rem; /* Increase font size for better visibility */
+}
+
+h2 {
+    color: #ff6347; /* Tomato color for the word display */
+    margin: 10px 0; /* Margin for spacing */
+    font-size: 3rem; /* Increase font size for better visibility */
+}
+
+img {
+    margin: 20px 0; /* Spacing around the image */
+    border: 2px solid #ff6347; /* Border matching the color theme */
+    border-radius: 10px; /* Rounded image corners */
+    max-width: 100%; /* Ensure image fits within the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+button {
+    background-color: #ff6347; /* Tomato color for buttons */
+    color: white; /* White text */
+    padding: 10px 15px; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 5px; /* Spacing between buttons */
+    transition: background-color 0.3s; /* Smooth color transition */
+    width: 100%; /* Make buttons full-width */
+    max-width: 200px; /* Limit button width */
+}
+
+button:hover {
+    background-color: #ff4500; /* Darker shade on hover */
+}
+
+audio {
+    margin-top: 20px; /* Spacing above audio player */
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 90%; /* Full width of the container */
+    height: 20px; /* Height of the progress bar */
+    background-color: #e0e0e0; /* Light gray background */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px; /* Margin above progress bar */
+}
+
+.progress-bar {
+    height: 100%; /* Full height */
+    background-color: #ff6347; /* Tomato color for progress */
+    border-radius: 5px; /* Rounded corners */
+    transition: width 0.3s; /* Smooth width transition */
+}

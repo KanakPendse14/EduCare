@@ -1,0 +1,35 @@
+const dailyNecessorySentencesData = [
+    { sentence: "Good morning", hindi: "सुप्रभात", image: "good_morning.png" },
+    { sentence: "Good night", hindi: "शुभ रात्रि", image: "good_night.png" },
+    { sentence: "Thank you", hindi: "धन्यवाद", image: "thank_you.png" },
+    { sentence: "Please", hindi: "कृपया", image: "please.png" },
+    { sentence: "Sorry", hindi: "मुझे माफ करें", image: "sorry.png" },
+    { sentence: "Excuse me", hindi: "माफ़ कीजिये", image: "excuse_me.png" },
+    { sentence: "Yes", hindi: "हाँ", image: "yes.png" },
+    { sentence: "No", hindi: "नहीं", image: "no.png" },
+    { sentence: "Hello", hindi: "नमस्ते", image: "hello.png" },
+    { sentence: "Goodbye", hindi: "अलविदा", image: "goodbye.png" },
+    { sentence: "How are you?", hindi: "आप कैसे हैं?", image: "how_are_you.png" },
+    { sentence: "I am fine", hindi: "मैं ठीक हूँ", image: "i_am_fine.png" },
+    { sentence: "What is your name?", hindi: "आपका नाम क्या है?", image: "what_is_your_name.png" },
+    { sentence: "My name is [Name]", hindi: "मेरा नाम [Name] है", image: "my_name_is.png" },
+    { sentence: "Can I help you?", hindi: "क्या मैं आपकी मदद कर सकता हूँ?", image: "can_i_help_you.png" },
+    { sentence: "I need help", hindi: "मुझे मदद चाहिए", image: "i_need_help.png" },
+    { sentence: "Where is the bathroom?", hindi: "बाथरूम कहाँ है?", image: "where_is_bathroom.png" },
+    { sentence: "I am hungry", hindi: "मुझे भूख लगी है", image: "i_am_hungry.png" },
+    { sentence: "I am thirsty", hindi: "मुझे प्यास लगी है", image: "i_am_thirsty.png" },
+    { sentence: "I don't understand", hindi: "मुझे समझ नहीं आया", image: "i_dont_understand.png" },
+    { sentence: "Can you repeat that?", hindi: "क्या आप इसे दोहरा सकते हैं?", image: "can_you_repeat.png" },
+    { sentence: "I am lost", hindi: "मैं खो गया हूँ", image: "i_am_lost.png" },
+    { sentence: "Where is the nearest hospital?", hindi: "सबसे नजदीकी अस्पताल कहाँ है?", image: "nearest_hospital.png" },
+    { sentence: "Call the police", hindi: "पुलिस को बुलाइए", image: "call_police.png" },
+    { sentence: "How much does this cost?", hindi: "इसकी कीमत कितनी है?", image: "how_much_cost.png" },
+    { sentence: "I need a doctor", hindi: "मुझे डॉक्टर चाहिए", image: "i_need_doctor.png" },
+    { sentence: "Do you speak English?", hindi: "क्या आप अंग्रेज़ी बोलते हैं?", image: "speak_english.png" },
+    { sentence: "I am sorry", hindi: "मुझे माफ कर दो", image: "i_am_sorry.png" },
+    { sentence: "I don't know", hindi: "मुझे नहीं पता", image: "i_dont_know.png" },
+    { sentence: "Can I have water?", hindi: "क्या मुझे पानी मिल सकता है?", image: "can_i_have_water.png" }
+  ];
+  
+  export default dailyNecessorySentencesData;
+  
