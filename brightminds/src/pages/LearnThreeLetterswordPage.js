@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import threeLetterWordsData from '../data/threeLetterWordsData'; // Adjust the path if needed
 import "../css/LearnThreeLetterWordsPage.css";
+import Navbar from '../components/Navbar'; // Import the Navbar component
 
-const LearnThreeLetterWordsPage = () => {
+const LearnThreeLetterWordsPage = ({ studentName, studentAge }) => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [isRecording, setIsRecording] = useState(false);
     const [audioURL, setAudioURL] = useState(null);
@@ -82,6 +83,9 @@ const LearnThreeLetterWordsPage = () => {
 
     return (
         <div className="three-letter-words-page">
+            {/* Add the Navbar here */}
+            <Navbar studentName={studentName} studentAge={studentAge} />
+
             <h1>Learning Three-Letter Words</h1>
             <div className="word-slide">
                 <h2 style={{ fontSize: '80px' }}>

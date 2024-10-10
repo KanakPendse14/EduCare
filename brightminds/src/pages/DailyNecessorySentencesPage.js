@@ -140,10 +140,10 @@
 
 // export default DailyNecessorySentencesPage;
 
-
 import React, { useState, useRef } from 'react';
 import dailyNecessorySentencesData from '../data/DailyNecessorySentencesdata';
 import '../css/DailyNecessorySentences.css';
+import Navbar from '../components/Navbar'; // Adjust the import path according to your project structure
 
 const DailyNecessorySentencesPage = () => {
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
@@ -251,6 +251,7 @@ const DailyNecessorySentencesPage = () => {
 
   return (
     <div className="daily-necessory-sentences-page">
+      <Navbar /> {/* Include the Navbar here */}
       <h1>Daily Necessory Sentences</h1>
       <div className="sentence-slide">
         <h2>

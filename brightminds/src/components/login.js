@@ -12,7 +12,7 @@ const Login = () => {
     // Handle login logic here (e.g., API calls)
     console.log('Email:', email, 'Password:', password);
     if (email === 'test@gmail.com' && password === '123') {
-      navigate('/listenandlearn'); // Navigate to ListenandLearnPage
+      navigate('/home'); // Navigate to ListenandLearnPage
   } else {
       console.log('Invalid credentials');// Handle invalid login
   }

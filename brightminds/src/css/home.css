@@ -1,0 +1,43 @@
+.home-page {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .sections-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .section-block {
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+  }
+  
+  .section-block h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .section-block p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .section-block a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+  
+  .section-block a:hover {
+    background-color: #0056b3;
+  }
+  
