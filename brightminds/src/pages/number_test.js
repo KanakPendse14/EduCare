@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useHistory for navigation
 import '../css/number_test.css'; // Import the styles
 
 // Correctly reference the assets from the public folder
@@ -22,9 +23,13 @@ const numberImages = [
 const getRandomNumber = () => Math.floor(Math.random() * 10) + 1;
 
 const NumberTest = () => {
+  const [currentIndex, setCurrentIndex] = useState(0); // State to track the current letter
+  const navigate = useNavigate(); // Hook to navigate to other routes
   const [currentNumber, setCurrentNumber] = useState(getRandomNumber());
   const [options, setOptions] = useState(generateOptions(currentNumber));
   const [feedback, setFeedback] = useState(''); // To store feedback
+  const [correctCount, setCorrectCount] = useState(0); // Count of correct answers
+  const [incorrectCount, setIncorrectCount] = useState(0); // Count of incorrect answers
 
   function generateOptions(correctNumber) {
     const optionsSet = new Set();
@@ -46,9 +51,14 @@ const NumberTest = () => {
     buzzer.play();
   };
 
+  const handleExit = () => {
+    navigate('/assessment');
+  };
+
   const handleImageClick = (selectedNumber) => {
     if (selectedNumber === currentNumber) {
       setFeedback('Correct!'); // Show "Correct!" feedback
+      setCorrectCount(correctCount + 1); // Increment correct count
       setTimeout(() => {
         setFeedback(''); // Clear feedback after 1 second
         const newNumber = getRandomNumber();
@@ -58,12 +68,21 @@ const NumberTest = () => {
     } else {
       playBuzzer();
       setFeedback('Incorrect. Try again!'); // Show "Incorrect" feedback
+      setIncorrectCount(incorrectCount + 1); // Increment incorrect count
     }
   };
+
+  
 
   return (
     <div className="container">
       <h1>Count the Items</h1>
+
+      {/* Display scores in the top right corner */}
+      <div className="scoreboard">
+        <span>Correct: {correctCount}</span>
+        <span>Incorrect: {incorrectCount}</span>
+      </div>
 
       <div className="number-images">
         {/* Display random number of ball images for the current number */}
@@ -85,10 +104,22 @@ const NumberTest = () => {
         ))}
       </div>
 
+      
+
       {/* Only display the feedback if there's a message */}
       {feedback && (
         <div className="feedback">{feedback}</div>
       )}
+
+      {/* Exit Button */}
+      <div className='absolute top-7 left-8'>
+        <button
+          onClick={handleExit}
+          className='bg-black/20 text-white px-7 py-3 rounded-full shadow-lg hover:bg-black/30 transition duration-300'
+        >
+          Exit
+        </button>
+      </div>
     </div>
   );
 };

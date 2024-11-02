@@ -1,0 +1,160 @@
+/* test_add.css */
+.score-display {
+    position: absolute;
+    top: 50px; /* Move the score display 30px further down */
+    right: 20px;
+    font-size: 18px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight background to make it more visible */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+
+.test-add-container {
+    background-image: url('/public/images/lightbg.png'); /* Set the background image */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .content {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px; /* Adjust the width based on your needs */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #081544;
+  }
+  
+  .numbers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .number-box {
+    text-align: center;
+  }
+  
+  .number {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .plus-sign, .equals-sign, .minus-sign {
+    font-size: 3rem;
+    margin: 0 1rem;
+  }
+  
+  .bee-images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .bee-images img {
+    width: 50px; /* Adjust size */
+    height: 50px;
+    margin: 0 5px;
+  }
+  
+  .input-field {
+    font-size: 24px;
+    padding: 5px;
+    width: 120px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Make input field always visible */
+  .input-field:focus,
+  .input-field:hover {
+    border-color: #007bff;
+  }
+  
+  
+  .check-button, .next-button, .exit-button {
+    background-color: #081544;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .check-button:hover, .next-button:hover, .exit-button {
+    background-color: #4a516c;
+  }
+  
+  .result {
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+  
+  .test-add-container .correct .result-number{
+    color: green !important ;
+  }  
+  
+  .incorrect {
+    color: red;
+  }
+  
+  .result .bee-images {
+    margin-top: 10px;
+    flex-wrap: wrap; /* Display ducks in a horizontal row and wrap if needed */
+  }
+  
+  .result-number {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Make the whole container horizontal and fixed */
+  .test-add-container {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .total-ducks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .test-add-container .score-display {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    font-size: 18px;
+    color: #333;
+  }

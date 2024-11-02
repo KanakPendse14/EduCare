@@ -1,0 +1,77 @@
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f0f8ff; /* Light blue background */
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #e6e6fa; /* Light lavender */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .sidebar li:hover {
+    background-color: #dcdcdc; /* Slightly darker on hover */
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  input[type='file'] {
+    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .test-results-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .test-block {
+    background-color: #ffffff; /* White for the test blocks */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 48%; /* Adjust the width for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .analysis-data {
+    background-color: #f9f9f9; /* Light grey for analysis data */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .graph-container {
+    margin-top: 20px;
+    max-width: 800px; /* Limit the size of the graph */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  

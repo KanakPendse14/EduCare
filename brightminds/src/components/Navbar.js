@@ -26,7 +26,7 @@ const Navbar = ({ studentName, profilePhoto }) => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <img src=" " alt="EduCare Logo" className="navbar-logo" />
+        <img src="https://i.im.ge/2024/10/11/kmwwTK.99e50934e515314d14abaa8cb3e2a511.jpeg " alt="EduCare Logo" className="navbar-logo" />
         <span className="navbar-appname">EduCare</span>
       </div>
       <div className="navbar-menu-container">
@@ -35,28 +35,14 @@ const Navbar = ({ studentName, profilePhoto }) => {
             <a href="/home">Home</a>
           </li>
           <li>
-            <a href="#" onClick={toggleLearnDropdown}>Learn</a>
-            {showLearnDropdown && (
-              <ul className="dropdown">
-                <li><a href="/learneng">English</a></li>
-                <li><a href="/learnmaths">Maths</a></li>
-              </ul>
-            )}
+            <a href="/listenandlearn">Learn</a> {/* Added next to Assessment */}
           </li>
           <li>
-            <a href="#" onClick={toggleAssessmentDropdown}>Assessment</a>
-            {showAssessmentDropdown && (
-              <ul className="dropdown">
-                {/* Clicking on English redirects to eng_test */}
-                <li><a onClick={() => handleAssessmentNavigation('/engtest')}>English</a></li>
-                {/* Clicking on Maths redirects to number_test */}
-                <li><a onClick={() => handleAssessmentNavigation('/numbertest')}>Maths</a></li>
-              </ul>
-            )}
-          </li>
           <li>
-            <a href="/listenandlearn">Listen & Learn</a> {/* Added next to Assessment */}
+            <a href="/assessment">Test</a> {/* Added next to Assessment */}
           </li>
+          </li>
+          
           <li><a href="/results">Results</a></li>
           <li><a href="/logout">LogOut</a></li>
         </ul>
@@ -64,7 +50,7 @@ const Navbar = ({ studentName, profilePhoto }) => {
       <div className="navbar-right">
         <div className="student-info">
           <span className="student-name">{studentName}</span>
-          <img src={profilePhoto} alt="Profile" className="profile-photo" />
+          <img src=' https://i.im.ge/2024/10/11/kmw6U9.e87ab0a15b2b65662020e614f7e05ef1.jpeg' alt="Profile" className="profile-photo" />
         </div>
       </div>
     </nav>

@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff; /* Light blue background */
+    font-family: 'Comic Sans MS', sans-serif;
+  }
+  
+  .quiz-container {
+    width: 1000px; /* Restrict to laptop display dimensions */
+    max-width: 100%;
+    padding: 20px;
+    background-color: #e6f7ff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    overflow: hidden; /* Prevent scrolling */
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    margin-bottom: 20px;
+  }
+  
+  .pairs-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .left-column,
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .pair-box {
+    width: 150px;
+    height: 100px;
+    background-color: #b3e5fc; /* Light blue for image containers */
+    border: 3px solid #4a90e2;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pair-box:hover {
+    transform: scale(1.05);
+    background-color: #81d4fa; /* Slightly darker blue on hover */
+  }
+  
+  .pair-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .feedback-message {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    color: #388e3c;
+    font-weight: bold;
+    transition: color 0.5s ease-in-out;
+  }
+  
+  .feedback-message.wrong {
+    color: #d32f2f; /* Red for wrong messages */
+  }
+  
+  .smiley,
+  .sad {
+    font-size: 50px;
+    margin-top: 10px;
+    animation: pop-up 0.3s ease;
+  }
+  
+  @keyframes pop-up {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Navigation buttons */
+  .navigation-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-top: 20px;
+  }
+  
+  .prev-slide-btn,
+  .next-slide-btn,
+  .exit-btn {
+    margin: 0 10px; /* Spacing between buttons */
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background-color: #4a90e2; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .prev-slide-btn:hover,
+  .next-slide-btn:hover,
+  .exit-btn:hover {
+    background-color: #357ab7; /* Darker shade on hover */
+  }
+  
+  @media (max-height: 700px) {
+    .quiz-container {
+      transform: scale(0.9); /* Scale down slightly on smaller laptop screens */
+    }
+  }
+  

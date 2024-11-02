@@ -1,0 +1,142 @@
+.score-display {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.3rem;
+  color: #444;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  gap: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.score-display span {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: bold; /* Bolder font for better visibility */
+}
+
+.quiz-container {
+  width: 900px; /* Adjusted width for smaller screens */
+  max-width: 100%;
+  padding: 25px;
+  background-color: #e0f7fa; /* Soft cyan for background */
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  overflow: hidden;
+  margin: 20px auto; /* Added margin for spacing */
+  position: relative;
+}
+
+h1 {
+  font-size: 3rem; /* Increased font size */
+  color: #0097a7; /* Darker cyan color */
+  margin-bottom: 25px;
+}
+
+.pairs-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px; /* Increased gap for better spacing */
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Increased gap */
+}
+
+.pair-box {
+  width: 160px; /* Slightly wider boxes */
+  height: 120px; /* Increased height for better visuals */
+  background-color: #b2ebf2; /* Light cyan for boxes */
+  border: 4px solid #0097a7; /* Darker border */
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.pair-box:hover {
+  transform: scale(1.1); /* Slightly larger hover effect */
+  background-color: #80deea; /* Slightly darker cyan on hover */
+}
+
+.pair-box img {
+  width: 90%; /* Reduced width for better centering */
+  height: 90%; /* Reduced height */
+  object-fit: contain;
+}
+
+.feedback-message {
+  margin-top: 25px; /* Increased margin for spacing */
+  font-size: 2rem; /* Increased font size */
+  color: #00796b; /* Teal for positive feedback */
+  font-weight: bold;
+  transition: color 0.5s ease-in-out;
+}
+
+.feedback-message.wrong {
+  color: #d32f2f; /* Red for wrong messages */
+}
+
+.smiley,
+.sad {
+  font-size: 60px; /* Increased size for emphasis */
+  margin-top: 15px; /* Increased margin */
+  animation: pop-up 0.3s ease;
+}
+
+@keyframes pop-up {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Position exit button in top-left */
+.exit-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 12px 22px; /* Adjusted padding for a balanced look */
+  font-size: 1.6rem;
+  background-color: #00796b; /* Teal button color */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Added transform for scaling */
+}
+
+.exit-btn:hover {
+  background-color: #004d40; /* Darker teal on hover */
+  transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+/* Position score counters in top-right */
+.correct-counter {
+  color: #388e3c; /* Green for correct counters */
+}
+
+.wrong-counter {
+  color: #d32f2f; /* Red for wrong counters */
+}
+
+/* Adjust scaling for smaller laptop screens */
+@media (max-height: 700px) {
+  .quiz-container {
+    transform: scale(0.95); /* Slightly scale down on smaller laptop screens */
+    margin: 0 auto;
+  }
+}

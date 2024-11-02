@@ -1,43 +1,75 @@
+/* home.css */
 .home-page {
-    text-align: center;
-    padding: 2rem;
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  background-image: url('https://i.im.ge/2024/10/11/kmPqR4.75f8447caf7eaff69ad8dec86a483a31.jpeg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-between; /* Create space between left and right content */
+  align-items: center;
+  padding: 0 50px; /* Padding for spacing */
+  color: rgb(24, 19, 30);
+  text-align: center; /* Align text to the left */
+}
+
+.left-content {
+  flex: 1; /* Takes up the left half of the page */
+  max-width: 50%; /* Limit the width of left content */
+  justify-content: center; /* Center align the quote */
+  align-items: center; /* Center align the quote vertically */
+}
+
+.left-content h1 {
+  font-size: 3rem; /* Main title size */
+  margin: 50px; /* Remove default margin */
+}
+
+.left-content p {
+  font-size: 1.5rem; /* Description text size */
+  margin-top: 1rem; /* Spacing above the paragraph */
+  justify-content: center; /* Center align the quote */
+}
+
+.right-content {
+  flex: 1; /* Takes up the right half of the page */
+  max-width: 40%; /* Limit the width of right content */
+  display: flex;
+  justify-content: center; /* Center align the quote */
+  align-items: center; /* Center align the quote vertically */
+}
+
+.quote {
+  font-size: 2rem; /* Quote text size */
+  font-style: italic; /* Italic style for the quote */
+  text-align: center; /* Center align text */
+  padding: 100px; /* Padding around the quote */
+  justify-content: center; /* Center align the quote */
+  border-left: 4px solid rgba(24, 24, 24, 0.8); /* Optional left border for aesthetics */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .home-page {
+    flex-direction: column; /* Stack elements on smaller screens */
+    padding: 30px; /* Adjust padding */
   }
-  
-  .sections-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+
+  .left-content,
+  .right-content {
+    max-width: 100%; /* Full width on smaller screens */
+    text-align: center; /* Center text for mobile */
   }
-  
-  .section-block {
-    background-color: #f0f0f0;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
+
+  .left-content h1 {
+    font-size: 7 rem; /* Adjust title size for mobile */
   }
-  
-  .section-block h2 {
-    margin-bottom: 0.5rem;
-    color: #333;
+
+  .left-content p {
+    font-size: 1.2rem; /* Adjust paragraph size for mobile */
   }
-  
-  .section-block p {
-    font-size: 0.9rem;
-    color: #666;
+
+  .quote {
+    font-size: 1.5rem; /* Adjust quote size for mobile */
   }
-  
-  .section-block a {
-    display: inline-block;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-  }
-  
-  .section-block a:hover {
-    background-color: #0056b3;
-  }
-  
+}

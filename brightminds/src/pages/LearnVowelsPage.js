@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "../css/LearnVowelsPage.css";
 import Navbar from '../components/Navbar';
+import { useNavigate } from 'react-router-dom'; // Add this for navigation
 
 const LearnVowelsPage = ({ studentName, studentAge }) => {
     const [currentVowel, setCurrentVowel] = useState(0);
@@ -8,8 +9,7 @@ const LearnVowelsPage = ({ studentName, studentAge }) => {
     const [recordedAudio, setRecordedAudio] = useState(null);
     const mediaRecorderRef = useRef(null);
     const audioChunksRef = useRef([]);
-    
-
+    const navigate = useNavigate(); // Initialize the useNavigate hook
 
     // Array of vowels and corresponding image paths
     const vowelsData = [
@@ -56,6 +56,12 @@ const LearnVowelsPage = ({ studentName, studentAge }) => {
         }
     };
 
+    // Function to handle the exit button
+    const handleExit = () => {
+        // Redirect to the homepage or any other desired page
+        navigate('/assessment');
+    };
+
     return (
         <div className="vowels-page">
             {/* Pass the studentName and studentAge to the Navbar */}
@@ -66,10 +72,10 @@ const LearnVowelsPage = ({ studentName, studentAge }) => {
                 <h2 style={{ fontSize: '80px' }}>{vowelsData[currentVowel].vowel}</h2>
                 <img 
                     src={vowelsData[currentVowel].image} 
-                    alt={`Vowel ${vowelsData[currentVowel].vowel}`} 
+                    alt={`Vowel ${vowelsData[currentVowel].vowel}`} // Corrected template literal
                     style={{ width: '300px', height: '300px' }} // Adjust the size as necessary
                 />
-                <button onClick={() => speakVowel(vowelsData[currentVowel].vowel)}>Play Sound</button>
+                {/* <button onClick={() => speakVowel(vowelsData[currentVowel].vowel)}>Play Sound</button> */}
                 <button onClick={nextVowel}>Next</button>
                 <button onClick={handleRecording}>
                     {isRecording ? 'Stop Recording' : 'Record My Voice'}
@@ -82,6 +88,11 @@ const LearnVowelsPage = ({ studentName, studentAge }) => {
                     <audio controls src={recordedAudio}></audio>
                 </div>
             )}
+            
+            {/* Exit Button */}
+            <button onClick={handleExit} className="exit-button">
+                Exit
+            </button>
         </div>
     );
 };

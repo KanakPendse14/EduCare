@@ -30,7 +30,7 @@ const ListeningSkillsset = ({ title, description, path }) => {
         <div className="course-block">
             <h2>{title}</h2>
             <p>{description}</p>
-            <button onClick={handleClick}>Start Course</button>
+            <button onClick={handleClick}>Start </button>
         </div>
     );
 };

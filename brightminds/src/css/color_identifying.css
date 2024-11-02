@@ -1,0 +1,87 @@
+.color-test-container {
+    background-image: url('/public/images/lightbg.png'); /* Set the background image */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.color-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.color {
+    cursor: pointer;
+    width: 275px; /* Adjust size as needed */
+    height: 275px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    border-radius: 50%; /* Ensure it remains circular */
+    overflow: hidden; /* Hide overflow to maintain circular shape */
+}
+
+
+.color.selected {
+    border-color: black;
+}
+
+.check-button,
+.next-button {
+    background-color: #081544;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.check-button:hover,
+.next-button:hover {
+    background-color: #4a516c;
+}
+
+.result {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+.exit-button {
+    background-color: #ff4d4d; /* Change this to your desired color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .exit-button:hover {
+    background-color: #ff1a1a; /* Darker shade for hover effect */
+  }
+  
+  /* Add any other styles you need for correct and incorrect messages */
+  

@@ -6,39 +6,85 @@ import CourseBlock from '../components/ListeningSkillsset';
 const ListenandLearnPage = () => {
   const studentName = "Aayush Shah"; // Replace with dynamic data
   const studentAge = 10; // Replace with dynamic data
-  // const profilePhoto = "/path/to/profile-photo.jpg"; // Commented out
 
   return (
     <div>
-      {/* Remove profilePhoto prop from Navbar */}
-      <Navbar studentName={studentName} studentAge={studentAge} /* profilePhoto={profilePhoto} */ />
+      <Navbar studentName={studentName} studentAge={studentAge} />
       <div className="listen-and-learn-page">
-        <h1>Listen and Repeat</h1>
+        <h1>Learn English</h1>
         <div className="courses-container">
+          <CourseBlock 
+            title="Alphabets" 
+            description="Let's Learn and practice Alphabets."
+            path="/learneng"
+          />
           <CourseBlock 
             title="Vowels" 
             description="Let's Learn and practice Vowels."
-            path="/vowels"
+            path="/learnvowels"
           />
           <CourseBlock 
-            title="3 Letter Words" 
-            description="Learn and practice 3-Letter Words."
+            title="Consonants" 
+            description="Let's Learn and practice Consonants."
+            path="/learnconsonants"
+          />
+          <CourseBlock 
+            title="Shapes" 
+            description="Learn and practice Shapes."
+            path="/learnshapes"
+          />
+          <CourseBlock 
+            title="Colours" 
+            description="Let's Explore and learn Colours."
+            path="/learncolours"
+          />
+          <CourseBlock 
+            title="Objects" 
+            description="Let's get familier with everyday objects."
             path="/threeletterwords"
           />
           <CourseBlock 
-            title="Every Day Phrases" 
-            description="Explore small sentences for basic comprehension."
+            title="Stories" 
+            description="Engage with short stories to enhance listening skills."
             path="/Everydaysentences"
           />
           <CourseBlock 
-            title="Small Stories" 
-            description="Engage with short stories to enhance listening skills."
+            title="Everyday Phrases" 
+            description="Dive into larger stories for advanced understanding."
+            path="/Everydaysentences"
+          />
+        </div>
+
+        {/* Adding a class to create space */}
+        <div className="section-spacer" />
+
+        <h1>Learn Maths</h1>
+        <div className="courses-container">
+          <CourseBlock 
+            title="Numbers 1-10" 
+            description="Let's Learn and practice Numbers."
+            path="/learnmaths"
           />
           <CourseBlock 
-            title="Large Stories" 
-            description="Dive into larger stories for advanced understanding."
+            title="Even Numbers" 
+            description="Let's Learn and practice Even Numbers"
+            path="/learneven"
           />
-          {/* Add other CourseBlocks here */}
+          <CourseBlock 
+            title="Odd Numbers" 
+            description="Let's Learn and practice Odd Numbers."
+            path="/learnodd"
+          />
+          <CourseBlock 
+            title="Addition" 
+            description="Explore addition through interactive examples."
+            path="/learnadd"
+          />
+          <CourseBlock 
+            title="Subtraction" 
+            description="Explore subtraction through examples."
+            path="/learnsub"
+          />
         </div>
       </div>
     </div>

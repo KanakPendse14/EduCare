@@ -13,12 +13,12 @@
 
 /* Styling for the text on the left side */
 .left-text {
-    position: absolute;
+    position: center;
     top: 40px;
     left: 80px;
     color: white;
     font-size: 2rem;
-    font-family: Arial, sans-serif;
+    font-family: Arial,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif sans-serif;
 }
 
 /* Styling for the button on the top right side */
@@ -75,10 +75,24 @@
     border-radius: 5px;
     transition: background-color 0.3s ease; /* Smooth hover effect */
   }
+
   
-  .next-btn:hover {
-    background-color: #808080; /* Darker green on hover */
+
+  .prev-btn {
+    position: absolute;
+    bottom: 70px; /* Position it near the bottom */
+    right: 70px; /* Align it to the right */
+    background-color: #696969; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
   }
+  
+  
   
   .next-btn:active {
     background-color: #A9A9A9; /* Even darker green when clicked */

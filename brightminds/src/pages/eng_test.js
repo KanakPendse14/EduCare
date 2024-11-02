@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import '../css/eng_test.css'; // Import the styles
 
 // Use relative paths for assets in the public folder
@@ -77,75 +78,15 @@ const alphabetData = [
       { imgSrc: alphabetImages.u, letter: 'U', isCorrect: false },
     ],
   },
-  {
-    letter: 'D',
-    backgroundImage: backgroundImages.orange,
-    options: [
-      { imgSrc: alphabetImages.o, letter: 'O', isCorrect: false },
-      { imgSrc: alphabetImages.d, letter: 'D', isCorrect: true },
-      { imgSrc: alphabetImages.q, letter: 'Q', isCorrect: false }
-    ]
-  },
-  {
-    letter: 'E',
-    backgroundImage: backgroundImages.purple,
-    options: [
-      { imgSrc: alphabetImages.e, letter: 'E', isCorrect: true },
-      { imgSrc: alphabetImages.b, letter: 'B', isCorrect: false },
-      { imgSrc: alphabetImages.k, letter: 'K', isCorrect: false }
-    ]
-  },
-  {
-    letter: 'F',
-    backgroundImage: backgroundImages.pink,
-    options: [
-      { imgSrc: alphabetImages.p, letter: 'P', isCorrect: false },
-      { imgSrc: alphabetImages.r, letter: 'R', isCorrect: true },
-      { imgSrc: alphabetImages.f, letter: 'F', isCorrect: false }
-    ]
-  },
-  {
-    letter: 'G',
-    backgroundImage: backgroundImages.olive,
-    options: [
-      { imgSrc: alphabetImages.o, letter: 'O', isCorrect: false },
-      { imgSrc: alphabetImages.d, letter: 'D', isCorrect: false },
-      { imgSrc: alphabetImages.g, letter: 'G', isCorrect: true }
-    ]
-  },
-  {
-    letter: 'H',
-    backgroundImage: backgroundImages.purple2,
-    options: [
-      { imgSrc: alphabetImages.o, letter: 'O', isCorrect: false },
-      { imgSrc: alphabetImages.h, letter: 'H', isCorrect: true },
-      { imgSrc: alphabetImages.q, letter: 'Q', isCorrect: false }
-    ]
-  },
-  {
-    letter: 'I',
-    backgroundImage: backgroundImages.darkOrange,
-    options: [
-      { imgSrc: alphabetImages.i, letter: 'I', isCorrect: true },
-      { imgSrc: alphabetImages.d, letter: 'D', isCorrect: false },
-      { imgSrc: alphabetImages.q, letter: 'T', isCorrect: false }
-    ]
-  },
-  {
-    letter: 'J',
-    backgroundImage: backgroundImages.darkBlue,
-    options: [
-      { imgSrc: alphabetImages.o, letter: 'T', isCorrect: false },
-      { imgSrc: alphabetImages.d, letter: 'I', isCorrect: false },
-      { imgSrc: alphabetImages.j, letter: 'J', isCorrect: true }
-    ]
-  },
-
   // Continue with other letters...
 ];
 
 const EngTest = () => {
   const [currentIndex, setCurrentIndex] = useState(0); // State to track the current letter
+  const [correctCount, setCorrectCount] = useState(0); // State to track correct answers
+  const [incorrectCount, setIncorrectCount] = useState(0); // State to track incorrect answers
+  const navigate = useNavigate(); // Hook to navigate to other routes
+
   const currentTest = alphabetData[currentIndex]; // Get the current test data
 
   // Function to pronounce "Select" and the correct letter
@@ -178,12 +119,21 @@ const EngTest = () => {
     }, 1000); // 1000 milliseconds = 1 second
   };
 
+  const handleExit = () => {
+    navigate('/assessment');
+  };
+
   // Function to handle image click
   const handleImageClick = (letter, isCorrect) => {
     if (isCorrect) {
       readLetter(letter); // Read only the letter for the correct image
+      setCorrectCount(correctCount + 1); // Increment correct answers
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % alphabetData.length); // Move to next letter
+      }, 500); // Short delay before switching to the next letter
     } else {
       playBuzzer();
+      setIncorrectCount(incorrectCount + 1); // Increment incorrect answers
     }
   };
 
@@ -195,9 +145,16 @@ const EngTest = () => {
         backgroundSize: 'cover',
       }}
     >
+      {/* Display the scores at the top right corner */}
+      <div className="scoreboard" style={{ position: 'absolute', top: '10px', right: '10px', color: 'white' }}>
+        <div>Correct: {correctCount}</div>
+        <div>Incorrect: {incorrectCount}</div>
+      </div>
+
       <div className="left-text">
         <h1>Select {currentTest.letter}</h1>
       </div>
+
       <button className="audio-btn" onClick={readFullAnswer}>
         🔊 Read Aloud
       </button>
@@ -215,8 +172,28 @@ const EngTest = () => {
         ))}
       </div>
 
+      {/* Previous letter button */}
+      <button
+        className="prev-btn"
+        style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+        onClick={() => setCurrentIndex((prevIndex) => (prevIndex === 0 ? alphabetData.length - 1 : prevIndex - 1))}
+      >
+        Previous Letter
+      </button>
+
+      <div className='absolute top-10 left-2'>
+          <button
+            onClick={handleExit}
+            className='bg-black/20 text-white px-9 py-3 rounded-full shadow-lg hover:bg-black/30 transition duration-300'
+          >
+            Exit
+          </button>
+        </div>
+
+      {/* Next letter button */}
       <button
         className="next-btn"
+        style={{ position: 'absolute', bottom: '10px', right: '10px' }}
         onClick={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % alphabetData.length)}
       >
         Next Letter
