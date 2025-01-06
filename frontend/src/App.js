@@ -25,9 +25,9 @@ import TestAdd from './pages/TestAdd';
 import TestSubtract from './pages/TestSubtract';
 import ShapeIdentifyingTest from './pages/ShapeIdentifyingTest';
 import ColorIdentifyingTest from './pages/ColorIdentifyingTest';
-import Profile from './pages/profilepage';
-import testresultspage from './pages/testresultpage'
-import TestResultPage from './pages/testresultpage';
+import ProfilePage from './pages/profilepage';
+// import testresultspage from './pages/testresultpage'
+// import TestResultPage from './pages/testresultpage';
 
 
 function App() {
@@ -59,9 +59,9 @@ function App() {
         <Route path="/subtest" element={<TestSubtract/>} />
         <Route path="/shapetest" element={<ShapeIdentifyingTest/>} />
         <Route path="/colourtest" element={<ColorIdentifyingTest/>} />
-        <Route path='/profle' element={<Profile/>} />
-        <Route path='/testresultpage' element={<TestResultPage/>}/>
-        
+        <Route path='/studentprofile' element={<ProfilePage/>} />
+        {/* <Route path='/testresultpage' element={<TestResultPage/>}/>
+         */}
       </Routes>
     </Router>
   );
