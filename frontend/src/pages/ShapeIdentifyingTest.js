@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import Navbar from '../components/Navbar'; // Import the Navbar component
 import '../css/shape_identifying.css'; // Use the newly created CSS file
+import SubmitButton from '../components/SubmitButton';
 
 const shapes = [
   { name: 'Circle', image: '/images/circle.png' },
@@ -75,10 +76,10 @@ const ShapeIdentifyingTest = () => {
       <Navbar /> {/* Navbar is now outside the shape test container */}
 
       <div className="shape-test-container">
-        <h1>Select {correctShape}</h1> {/* Updated to dynamically show correct shape */}
+        <h1 className='shape-title'>Select {correctShape}</h1> {/* Updated to dynamically show correct shape */}
         
         {/* Score display */}
-        <div className="score-display" style={{ position: 'absolute', top: '10px', right: '10px' }}>
+        <div className="score-display" style={{ position: 'absolute', top: '60px', right: '20px' }}>
           <p>Correct: {correctCount}</p>
           <p>Wrong: {wrongCount}</p>
         </div>
@@ -109,9 +110,18 @@ const ShapeIdentifyingTest = () => {
         )}
 
         <button className="next-button" onClick={handleNext}>Next</button>
+        <SubmitButton/>
         
         {/* Exit Button */}
-        <button className="exit-button" onClick={handleExit}>Exit</button>
+        <div className="exit-button-container">
+          <button
+            onClick={handleExit}
+            className="exit-button"
+          >
+            Exit
+          </button>
+          
+        </div>
       </div>
     </>
   );

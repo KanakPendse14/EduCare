@@ -1,17 +1,14 @@
 .score-display {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.3rem;
-  color: #444;
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
-  padding: 12px;
-  border-radius: 6px;
-  display: flex;
-  gap: 25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  top: 50px; /* Move the score display 30px further down */
+  right: 20px;
+  font-size: 18px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.8); /* Slight background to make it more visible */
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000; /* Ensure it's on top of other elements */
 }
-
 .score-display span {
   display: inline-block;
   font-size: 1.6rem;
@@ -107,7 +104,7 @@ h1 {
 /* Position exit button in top-left */
 .exit-btn {
   position: absolute;
-  top: 15px;
+  top: 100px;
   left: 15px;
   padding: 12px 22px; /* Adjusted padding for a balanced look */
   font-size: 1.6rem;

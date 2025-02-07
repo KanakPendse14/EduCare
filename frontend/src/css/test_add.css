@@ -11,6 +11,26 @@
     z-index: 1000; /* Ensure it's on top of other elements */
   }
   
+  .exit-button-container {
+    position: absolute;
+    top: 50px; /* Align the button at the same vertical height */
+    left: 85px; /* Position it 20px from the left */
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+  .exit-button {
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent black */
+    color: white; /* White text */
+    padding: 12px 20px; /* Adjust padding to fit button design */
+    border-radius: 9999px; /* Fully rounded for pill-like appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  .exit-button:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker on hover */
+  }
+  
 
 .test-add-container {
     background-image: url('/public/images/lightbg.png'); /* Set the background image */

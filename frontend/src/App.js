@@ -26,12 +26,14 @@ import TestSubtract from './pages/TestSubtract';
 import ShapeIdentifyingTest from './pages/ShapeIdentifyingTest';
 import ColorIdentifyingTest from './pages/ColorIdentifyingTest';
 import ProfilePage from './pages/profilepage';
+// import { StudentProvider } from './context/StudentContext';
 // import testresultspage from './pages/testresultpage'
-// import TestResultPage from './pages/testresultpage';
+import TestResultPage from './pages/testresultpage';
 
 
 function App() {
   return (
+
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -60,10 +62,11 @@ function App() {
         <Route path="/shapetest" element={<ShapeIdentifyingTest/>} />
         <Route path="/colourtest" element={<ColorIdentifyingTest/>} />
         <Route path='/studentprofile' element={<ProfilePage/>} />
-        {/* <Route path='/testresultpage' element={<TestResultPage/>}/>
-         */}
+        <Route path='/testresultpage' element={<TestResultPage/>}/>
+        
       </Routes>
     </Router>
+
   );
 }
 

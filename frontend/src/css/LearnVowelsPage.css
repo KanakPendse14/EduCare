@@ -28,35 +28,65 @@ button {
 
 .vowels-page {
     text-align: center;
-    background-color: #a4d3fd; /* Light blue background */
-    height: 100vh; /* Full screen */
+    background-image: url('/public/images/lightbg.png'); /* Reuse the light background */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full screen height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative; /* Needed for positioning the arrows */
+    position: relative; /* For positioning elements like arrows */
+    padding: 20px;
+    color: #333; /* Neutral text color */
 }
 
 .vowel-slide {
-    background-color: #ffd700; /* Gold background for slides */
-    padding: 50px; /* Adjust as needed for image size */
-    width: 80%; /* Adjust for larger width */
-    border-radius: 20px;
+    background-color: rgba(255, 215, 0, 0.8); /* Transparent gold */
+    padding: 40px; /* Add padding for a balanced layout */
+    width: 90%; /* Adjust width */
+    border-radius: 25px; /* Softer edges */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Add spacing between elements */
     align-items: center;
-    height: 80vh; /* Takes most of the screen height */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    height: auto; /* Adjust height to fit content */
+    gap: 30px; /* Space between text and image */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
 }
 
 .vowel-slide img {
-    width: 300px; /* Adjust for image size */
-    height: auto;
+    max-width: 300px; /* Constrain max width */
+    width: 100%; /* Full width within constraints */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
 .vowel-slide h2 {
-    font-size: 150px; /* Large text size */
-    color: #000000; /* Text color */
+    font-size: 120px; /* Adjust text size */
+    color: #2f2f2f; /* Neutral text color */
     margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add subtle text shadow */
+    font-weight: bold;
+}
+
+button {
+    margin: 10px;
+    padding: 12px 25px; /* Adjust padding for better usability */
+    background-color: #1e90ff; /* Same button color */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Fully rounded buttons */
+    cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+button:hover {
+    background-color: #0073e6; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 .arrow {
@@ -66,11 +96,17 @@ button {
     font-size: 50px;
     background-color: #1e90ff;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
     z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Depth */
+    transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.1); /* Slight zoom effect */
 }
 
 .arrow.left {
@@ -81,22 +117,16 @@ button {
     right: 20px;
 }
 
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #1e90ff; /* Button color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 .accuracy-display {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    background-color: #4CAF50;
+    top: 20px;
+    right: 30px;
+    background-color: #4caf50; /* Green background for accuracy */
     color: white;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px 18px;
+    border-radius: 25px; /* Rounded display */
     font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
+

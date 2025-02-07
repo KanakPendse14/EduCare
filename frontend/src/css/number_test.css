@@ -49,4 +49,49 @@
   .exit-button:hover {
     background-color: #ff1c1c; /* Darker red on hover */
   }
+
+
+  .number-images {
+    display: flex; /* Arrange images in a horizontal row */
+    justify-content: center; /* Center align the images */
+    gap: 10px; /* Add space between images */
+    margin: 20px 0;
+  }
+  
+  .image-container {
+    position: relative; /* Needed for the hover effect */
+  }
+  
+  .hover-count {
+    width: 80px; /* Adjust image size */
+    height: 80px; /* Keep the image square */
+    object-fit: contain; /* Ensure proper scaling */
+    transition: transform 0.3s ease; /* Smooth scaling effect */
+    cursor: pointer;
+  }
+  
+  .hover-count:hover {
+    transform: scale(1.2); /* Slightly enlarge the image on hover */
+  }
+  
+  .hover-count::after {
+    content: attr(data-label); /* Show the label (e.g., "One", "Two") */
+    position: absolute;
+    bottom: -30px; /* Position the label below the image */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for contrast */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction with the label */
+    transition: opacity 0.3s ease;
+  }
+  
+  .hover-count:hover::after {
+    opacity: 1; /* Show the label on hover */
+  }
+  
   

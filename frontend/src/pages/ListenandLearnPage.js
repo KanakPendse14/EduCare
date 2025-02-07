@@ -4,12 +4,9 @@ import '../css/ListenandLearn.css';
 import CourseBlock from '../components/ListeningSkillsset';
 
 const ListenandLearnPage = () => {
-  const studentName = "Aayush Shah"; // Replace with dynamic data
-  const studentAge = 10; // Replace with dynamic data
-
   return (
     <div>
-      <Navbar studentName={studentName} studentAge={studentAge} />
+      <Navbar />
       <div className="listen-and-learn-page">
         <h1>Learn English</h1>
         <div className="courses-container">

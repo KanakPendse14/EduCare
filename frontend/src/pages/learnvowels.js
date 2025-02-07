@@ -327,7 +327,7 @@ function LearnVowels() {
       >
         {/* Display slide ID on the slide */}
         <div className="absolute bottom-5 left-5 text-xl text-white bg-black/50 p-2 rounded">
-          Slide ID: {slides[currentIndex].id} {/* Display the current slide ID */}
+          Slide ID: {slides[currentIndex].slideId} {/* Display the current slide ID */}
         </div>
 
         {/* Only show audio button if the current slide has audio */}

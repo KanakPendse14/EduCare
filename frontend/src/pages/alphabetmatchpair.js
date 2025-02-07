@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../css/alphabetmatchpair.css'; // Import the styles
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import Navbar from '../components/Navbar';
+import SubmitButton from '../components/SubmitButton';
 
 function AlphabetMatchPair() {
   const [selectedPair, setSelectedPair] = useState(null);
@@ -215,8 +217,21 @@ function AlphabetMatchPair() {
   };
 
   return (
+    <div>
+    <Navbar/>
+    <div>
+    <div className='absolute top-10 left-14'>
+    
+          <button
+            onClick={handleExit}
+            className="exit-button"
+          >
+            Exit
+          </button>
+        </div>
     <div className="quiz-container">
       <h1>Match the Objects</h1>
+      
       <div className="pairs-container">
         {/* Left Column */}
         <div className="left-column">
@@ -271,13 +286,8 @@ function AlphabetMatchPair() {
             Next
           </button>
         )}
-        <div className='absolute top-10 left-2'>
-          <button
-            onClick={handleExit}
-            className='bg-black/20 text-white px-9 py-3 rounded-full shadow-lg hover:bg-black/30 transition duration-300'
-          >
-            Exit
-          </button>
+        <SubmitButton/>
+          
         </div>
       </div>
 
@@ -285,6 +295,7 @@ function AlphabetMatchPair() {
       <div className="score-display">
         <p>Correct Matches: {correctMatches}</p>
         <p>Wrong Matches: {wrongMatches}</p>
+        
         {quizFinished && (
           <div className="time-display">
             <p>Time Taken: {getElapsedTime()}</p>
@@ -292,6 +303,8 @@ function AlphabetMatchPair() {
         )}
       </div>
     </div>
+    </div>
+  
   );
 }
 

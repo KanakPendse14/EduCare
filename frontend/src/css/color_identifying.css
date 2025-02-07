@@ -8,6 +8,37 @@
     justify-content: center;
     align-items: center;
 }
+.exit-button-container {
+    position: absolute;
+    top: 50px; /* Adjusted for better positioning */
+    left: 70px; /* Adjusted to ensure it's not too far from the left */
+    z-index: 1000; /* Ensure it's on top of other elements */
+    width: 100px;
+    
+}
+
+.exit-button {
+    background-color: #ff4d4d; /* Soft red color for the button */
+    color: white; /* White text */
+    padding: 12px 18px; /* Slightly larger padding for a better look */
+    border: none; /* Removed default border */
+    border-radius: 50px; /* More rounded corners for a pill-like shape */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1.1rem; /* Slightly larger text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s ease; /* Smooth transition for color and shadow */
+}
+
+.exit-button:hover {
+    background-color: #ff1a1a; /* Darker red for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.exit-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Custom focus ring */
+}
+
 
 h1 {
     margin-bottom: 20px;
@@ -38,6 +69,7 @@ h1 {
 
 .color.selected {
     border-color: black;
+    border-width: 10px;
 }
 
 .check-button,

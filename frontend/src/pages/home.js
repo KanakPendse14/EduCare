@@ -133,53 +133,111 @@
 // export default HomePage;
 
 
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+// import React, { useEffect } from 'react';
+// import { useLocation, useNavigate } from 'react-router-dom';
+// import Navbar from '../components/Navbar';
+// import '../css/home.css';
+
+// const HomePage = () => {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   const [studentName, setStudentName] = useState('');
+
+//   // Debug: Log location state
+//   console.log('Location state received:', location.state);
+
+//   // Destructure the full student object
+//   // const { student } = location.state || {};
+  
+
+//   // Fallback if student data is missing
+//   if (!student) {
+//     return (
+//       <div>
+//         <p>No student data available. Please log in again.</p>
+//       </div>
+//     );
+//   }
+
+//   // Handle navigation to ProfilePage
+//   // const goToProfile = () => {
+//   //   if (studentName) {
+//   //     navigate('/studentprofile', { state: { student } });
+//   //   } else {
+//   //     alert('No student data available.');
+//   //   }
+//   // };
+//     useEffect(() => {
+//       // Retrieve student data from localStorage on component mount
+//       const storedStudent = localStorage.getItem('student');
+//       if (storedStudent) {
+//         const { Name } = JSON.parse(storedStudent); // Extract the Name property from the stored object
+//         setStudentName(Name);
+//       } else {
+//         // Redirect to login if no student data is found
+//         navigate('/login');
+//       }
+//     }, [navigate]);
+
+//   return (
+//     <div>
+//       <Navbar studentName={studentName}  />
+//       <div className="home-page">
+//         <div className="left-content ">
+//           <h1>Welcome, {studentName}!</h1>
+//           <p>
+//             EduCare is Assistive technology for children with learning disabilities that includes tools and devices designed to support and enhance their learning experiences.
+//           </p>
+//           {/* Button to navigate to ProfilePage */}
+//           {/* <button className="profile-button bg-sky-600 " onClick={goToProfile}>
+//             View Profile
+//           </button> */}
+//         </div>
+//         <div className="right-content">
+//           <blockquote className="quote">
+//             <h1>Quote-of-the-day</h1>
+//             "Education is the most powerful weapon which you can use to change the world."
+//           </blockquote>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HomePage;
+
+
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import '../css/home.css';
 
 const HomePage = () => {
-  const location = useLocation();
+  const [studentName, setStudentName] = useState('');
   const navigate = useNavigate();
 
-  // Debug: Log location state
-  console.log('Location state received:', location.state);
-
-  // Destructure the full student object
-  const { student } = location.state || {};
-
-  // Fallback if student data is missing
-  if (!student) {
-    return (
-      <div>
-        <p>No student data available. Please log in again.</p>
-      </div>
-    );
-  }
-
-  // Handle navigation to ProfilePage
-  const goToProfile = () => {
-    if (student) {
-      navigate('/studentprofile', { state: { student } });
+  useEffect(() => {
+    // Retrieve student data from localStorage on component mount
+    const storedStudent = localStorage.getItem('student');
+    if (storedStudent) {
+      const { Name } = JSON.parse(storedStudent); // Extract the Name property
+      setStudentName(Name);
     } else {
-      alert('No student data available.');
+      // Redirect to login if no student data is found
+      navigate('/login');
     }
-  };
+  }, [navigate]);
 
   return (
     <div>
-      <Navbar studentName={student.Name} studentAge={student.AGE} />
+      <Navbar studentName={studentName} />
       <div className="home-page">
         <div className="left-content">
-          <h1>Welcome, {student.Name}!</h1>
+          <h1>Welcome, {studentName}!</h1>
           <p>
-            Age: {student.AGE} years<br />
-            EduCare is Assistive technology for children with learning disabilities that includes tools and devices designed to support and enhance their learning experiences.
+            EduCare is Assistive technology for children with learning disabilities that includes tools and devices
+            designed to support and enhance their learning experiences.
           </p>
-          {/* Button to navigate to ProfilePage */}
-          <button className="profile-button" onClick={goToProfile}>
-            View Profile
-          </button>
         </div>
         <div className="right-content">
           <blockquote className="quote">

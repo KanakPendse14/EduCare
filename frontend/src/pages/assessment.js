@@ -11,7 +11,7 @@ const Assessment = () => {
     <div>
       <Navbar studentName={studentName} studentAge={studentAge} />
       <div className="listen-and-learn-page">
-        <h1>ENGLISH TEST</h1>
+        <h2>ENGLISH TEST</h2>
         <div className="courses-container">
           <CourseBlock 
             title="Alphabets" 
@@ -44,7 +44,7 @@ const Assessment = () => {
         {/* Adding a class to create space */}
         <div className="section-spacer" />
 
-        <h1>MATHS TEST</h1>
+        <h2>MATHS TEST</h2>
         <div className="courses-container">
           <CourseBlock 
             title="Numbers 1-10" 

@@ -8,11 +8,37 @@
     justify-content: center;
     align-items: center;
 }
+.exit-button-container {
+    position: absolute;
+    top: 50px; /* Align the button at the same vertical height */
+    left: 85px; /* Position it 20px from the left */
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+  .exit-button {
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent black */
+    color: white; /* White text */
+    padding: 12px 20px; /* Adjust padding to fit button design */
+    border-radius: 9999px; /* Fully rounded for pill-like appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  .exit-button:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker on hover */
+  }
 
-h1 {
+  .shape-title {
     margin-bottom: 20px;
     color: white;
+    font-weight: bold; /* Make the text bold */
+    background-color: rgba(245, 241, 241, 0.5); /* Add a semi-transparent black background */
+    padding: 10px 20px; /* Add padding for spacing around the text */
+    border-radius: 10px; /* Round the edges for a softer look */
+    text-align: center; /* Center align the text (optional) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
 }
+
 
 .shape-display {
     display: flex;

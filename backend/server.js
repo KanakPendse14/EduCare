@@ -4,6 +4,7 @@ const cors = require('cors');
 const studentRoutes = require('./routes/student'); // Import student routes
 const courseRoutes = require('./routes/courseRoutes');
 
+
 const app = express();
 app.use(cors()); 
 app.use(express.json()); // Middleware to parse JSON request body
@@ -16,10 +17,8 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Use the student routes
 app.use('/api/student', studentRoutes);  // Setup /api/student route
+app.use('/api/courseRoutes', courseRoutes);
 
-app.use('/api/courseRoutes', courseRoutes); 
-
-// Error handling middleware (optional)
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');

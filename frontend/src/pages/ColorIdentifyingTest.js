@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import Navbar from '../components/Navbar'; // Import the Navbar component
 import '../css/color_identifying.css'; // Create a new CSS file for styling
+import SubmitButton from '../components/SubmitButton';
 
 const colors = [
-  { name: 'Red', image: '/images/c-red.png' },
-  { name: 'Yellow', image: '/images/c-yellow.png' },
-  { name: 'Orange', image: '/images/c-orange.png' },
-  { name: 'Green', image: '/images/c-green.png' },
-  { name: 'Blue', image: '/images/c-blue.png' },
-  { name: 'Purple', image: '/images/c-purple.png' },
-  { name: 'Pink', image: '/images/c-pink.png' },
-  { name: 'Grey', image: '/images/c-grey.png' },
-  { name: 'Brown', image: '/images/c-brown.png' },
-  { name: 'Black', image: '/images/c-black.png' },
+  { name: 'Red', image: '/c-red.png' },
+  { name: 'Yellow', image: '/c-yellow.png' },
+  { name: 'Orange', image: '/c-orange.png' },
+  { name: 'Green', image: '/c-green.png' },
+  { name: 'Blue', image: '/c-blue.png' },
+  { name: 'Purple', image: '/c-purple.png' },
+  { name: 'Pink', image: '/c-pink.png' },
+  { name: 'Grey', image: '/c-grey.png' },
+  { name: 'Brown', image: '/c-brown.png' },
+  { name: 'Black', image: '/c-black.png' },
   { name: 'White' }, // No image for white
 ];
 
@@ -86,7 +87,7 @@ const ColorIdentifyingTest = () => {
         <h1>Select {correctColor}</h1> {/* Updated to dynamically show correct color */}
         
         {/* Score display */}
-        <div className="score-display" style={{ position: 'absolute', top: '10px', right: '10px' }}>
+        <div className="score-display" style={{ position: 'absolute', top: '60px', right: '20px' }}>
           <p>Correct: {correctCount}</p>
           <p>Wrong: {wrongCount}</p>
         </div>
@@ -130,7 +131,14 @@ const ColorIdentifyingTest = () => {
         <button className="next-button" onClick={handleNext}>Next</button>
         
         {/* Exit Button */}
-        <button className="exit-button" onClick={handleExit}>Exit</button>
+        {/* <button className="exit-button" onClick={handleExit}>Exit</button> */}
+        <div className="exit-button-container">
+          <button
+            onClick={handleExit}
+            className="exit-button"
+          >Exit</button>
+            </div>
+        <SubmitButton/>
       </div>
     </>
   );

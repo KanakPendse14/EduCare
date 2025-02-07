@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import '../css/eng_test.css'; // Import the styles
+import SubmitButton from '../components/SubmitButton';
 
 // Use relative paths for assets in the public folder
 const BuzzerSound = process.env.PUBLIC_URL + '/sounds/buzzer.wav'; // Buzzer sound from public folder
@@ -52,7 +53,38 @@ const alphabetImages = {
 // Data structure for the alphabet test
 const alphabetData = [
   {
+    letter: 'H',
+    question: 'Which image corresponds to the letter H?',
+    backgroundImage: backgroundImages.purple,
+    options: [
+      { imgSrc: alphabetImages.h, letter: 'H', isCorrect: true },
+      { imgSrc: alphabetImages.u, letter: 'U', isCorrect: false },
+      { imgSrc: alphabetImages.i, letter: 'I', isCorrect: false },
+    ],
+  },
+  {
+    letter: 'C',
+    question: 'Which image corresponds to the letter C?',
+    backgroundImage: backgroundImages.blue,
+    options: [
+      { imgSrc: alphabetImages.o, letter: 'O', isCorrect: false },
+      { imgSrc: alphabetImages.c, letter: 'C', isCorrect: true },
+      { imgSrc: alphabetImages.u, letter: 'U', isCorrect: false },
+    ],
+  },
+  {
+    letter: 'F',
+    question: 'Which image corresponds to the letter F?',
+    backgroundImage: backgroundImages.pink,
+    options: [
+      { imgSrc: alphabetImages.f, letter: 'F', isCorrect: true },
+      { imgSrc: alphabetImages.k, letter: 'K', isCorrect: false },
+      { imgSrc: alphabetImages.l, letter: 'L', isCorrect: false },
+    ],
+  },
+  {
     letter: 'A',
+    question: 'Which image corresponds to the letter A?',
     backgroundImage: backgroundImages.green,
     options: [
       { imgSrc: alphabetImages.a, letter: 'A', isCorrect: true },
@@ -61,7 +93,18 @@ const alphabetData = [
     ],
   },
   {
+    letter: 'J',
+    question: 'Which image corresponds to the letter J?',
+    backgroundImage: backgroundImages.cyan,
+    options: [
+      { imgSrc: alphabetImages.j, letter: 'J', isCorrect: true },
+      { imgSrc: alphabetImages.p, letter: 'P', isCorrect: false },
+      { imgSrc: alphabetImages.y, letter: 'Y', isCorrect: false },
+    ],
+  },
+  {
     letter: 'B',
+    question: 'Which image corresponds to the letter B?',
     backgroundImage: backgroundImages.coral,
     options: [
       { imgSrc: alphabetImages.h, letter: 'H', isCorrect: false },
@@ -70,15 +113,45 @@ const alphabetData = [
     ],
   },
   {
-    letter: 'C',
-    backgroundImage: backgroundImages.blue,
+    letter: 'I',
+    question: 'Which image corresponds to the letter I?',
+    backgroundImage: backgroundImages.lime,
     options: [
-      { imgSrc: alphabetImages.o, letter: 'O', isCorrect: false },
-      { imgSrc: alphabetImages.c, letter: 'C', isCorrect: true },
-      { imgSrc: alphabetImages.u, letter: 'U', isCorrect: false },
+      { imgSrc: alphabetImages.i, letter: 'I', isCorrect: true },
+      { imgSrc: alphabetImages.w, letter: 'W', isCorrect: false },
+      { imgSrc: alphabetImages.x, letter: 'X', isCorrect: false },
     ],
   },
-  // Continue with other letters...
+  {
+    letter: 'D',
+    question: 'Which image corresponds to the letter D?',
+    backgroundImage: backgroundImages.yellow,
+    options: [
+      { imgSrc: alphabetImages.d, letter: 'D', isCorrect: true },
+      { imgSrc: alphabetImages.g, letter: 'G', isCorrect: false },
+      { imgSrc: alphabetImages.m, letter: 'M', isCorrect: false },
+    ],
+  },
+  {
+    letter: 'G',
+    question: 'Which image corresponds to the letter G?',
+    backgroundImage: backgroundImages.teal,
+    options: [
+      { imgSrc: alphabetImages.g, letter: 'G', isCorrect: true },
+      { imgSrc: alphabetImages.t, letter: 'T', isCorrect: false },
+      { imgSrc: alphabetImages.a, letter: 'A', isCorrect: false },
+    ],
+  },
+  {
+    letter: 'E',
+    question: 'Which image corresponds to the letter E?',
+    backgroundImage: backgroundImages.orange,
+    options: [
+      { imgSrc: alphabetImages.e, letter: 'E', isCorrect: true },
+      { imgSrc: alphabetImages.s, letter: 'S', isCorrect: false },
+      { imgSrc: alphabetImages.f, letter: 'F', isCorrect: false },
+    ],
+  },
 ];
 
 const EngTest = () => {
@@ -180,6 +253,7 @@ const EngTest = () => {
       >
         Previous Letter
       </button>
+      
 
       <div className='absolute top-10 left-2'>
           <button
@@ -191,6 +265,7 @@ const EngTest = () => {
         </div>
 
       {/* Next letter button */}
+      <SubmitButton/>
       <button
         className="next-btn"
         style={{ position: 'absolute', bottom: '10px', right: '10px' }}

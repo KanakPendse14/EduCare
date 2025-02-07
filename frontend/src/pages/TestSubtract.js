@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar'; // Import the Navbar component
 import { useNavigate } from 'react-router-dom'; // For navigation
 import '../css/test_add.css'; // Use the existing CSS file
+import SubmitButton from '../components/SubmitButton';
+import ExitButton from '../components/ExitButton';
 
 const TestSubtract = () => {
   const [history, setHistory] = useState([[Math.floor(Math.random() * 11) + 2, Math.floor(Math.random() * 11)]]); // Ensures first number is > 2
@@ -49,15 +51,16 @@ const TestSubtract = () => {
 
   return (
     <div>
-      <Navbar /> {/* Navbar remains consistent */}
+      <Navbar />
 
       <div className="test-add-container">
         {/* Display score on the top-right corner */}
         <div className="score-display">
           Correct: {correctCount} | Incorrect: {wrongCount}
         </div>
-
         <div className="content">
+          
+          
           <h1>Subtraction Test</h1>
 
           <div className="numbers">
@@ -87,6 +90,7 @@ const TestSubtract = () => {
 
           {/* Check Answer button */}
           <button className="check-button" onClick={checkAnswer}>Check Answer</button>
+          
 
           {/* Show result and total number of ducks for correct answer */}
           {isCorrect !== null && (
@@ -107,10 +111,25 @@ const TestSubtract = () => {
           {/* Next button to generate new numbers */}
           <button className="next-button" onClick={generateNewNumbers}>Next</button>
 
-          {/* Exit Button */}
-          <button className="exit-button" onClick={handleExit}>
+          {/* <button
+          onClick={handleExit}
+          className='bg-black/20 text-white px-7 py-3 rounded-full shadow-lg hover:bg-black/30 transition duration-300'
+        >
+          Exit
+        </button> */}
+        <div className="exit-button-container">
+          <button
+            onClick={handleExit}
+            className="exit-button"
+          >
             Exit
           </button>
+        </div>
+          {/* <button className="save-button" >
+            Submit Score
+          </button> */}
+          <SubmitButton />
+          
         </div>
       </div>
     </div>
