@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import '../css/test_add.css';
 import SubmitButton from '../components/SubmitButton';
-import ExitButton from '../components/ExitButton';
 
 const TestAdd = () => {
   const [history, setHistory] = useState([[Math.floor(Math.random() * 11), Math.floor(Math.random() * 11)]]);
@@ -13,17 +12,20 @@ const TestAdd = () => {
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [startTime, setStartTime] = useState(Date.now());
-  const [testStartTime, setTestStartTime] = useState(new Date()); // To track test start date and time
-  const [totalTimeSpent, setTotalTimeSpent] = useState(0);
+  const [testStartTime, setTestStartTime] = useState(new Date());
   const [timePerQuestion, setTimePerQuestion] = useState([]);
-  
+  const [mistakesSummary, setMistakesSummary] = useState([]);
+  const [totalQuestions] = useState(10);
+
   const navigate = useNavigate();
+
+  const studentName = localStorage.getItem('student') || 'Unknown';
+  const testName = 'Addition Test';
 
   const num1 = history[currentIndex][0];
   const num2 = history[currentIndex][1];
 
   useEffect(() => {
-    // Capture the test start time when the component mounts
     setTestStartTime(new Date());
   }, []);
 
@@ -40,6 +42,10 @@ const TestAdd = () => {
     } else {
       setIsCorrect(false);
       setWrongCount(wrongCount + 1);
+      setMistakesSummary([
+        ...mistakesSummary,
+        `Q${currentIndex + 1}: ${num1}+${num2} → Given: ${studentInput}, Expected: ${correctAnswer}`
+      ]);
     }
 
     setStartTime(Date.now());
@@ -48,80 +54,82 @@ const TestAdd = () => {
   const generateNewNumbers = () => {
     const newNum1 = Math.floor(Math.random() * 11);
     const newNum2 = Math.floor(Math.random() * 11);
-    const newHistory = [...history, [newNum1, newNum2]];
-    setHistory(newHistory);
-    setCurrentIndex(newHistory.length - 1);
+    setHistory([...history, [newNum1, newNum2]]);
+    setCurrentIndex(history.length);
     setStudentInput('');
     setIsCorrect(null);
   };
 
-  const renderDuckImages = (number) => {
-    return Array.from({ length: number }, (_, index) => (
-      <img key={index} src="/images/duck.png" alt="duck" className="bee-img" />
-    ));
-  };
-
   const handleExit = () => {
-    const testEndTime = new Date(); // Capture test end time
-    const totalTestDuration = (testEndTime - testStartTime) / 1000; // Calculate total time spent on the test in seconds
-
-    // Trigger file download with scores and time
-    downloadScoresToFile(totalTestDuration, testStartTime, testEndTime);
     navigate('/assessment');
   };
 
   const calculateAverageTime = () => {
     if (timePerQuestion.length === 0) return 0;
     const total = timePerQuestion.reduce((acc, time) => acc + time, 0);
-    return (total / timePerQuestion.length).toFixed(2);
+    return total / timePerQuestion.length;
   };
 
-  const downloadScoresToFile = (totalTestDuration, testStartTime, testEndTime) => {
-    const startTimeFormatted = testStartTime.toLocaleString();
-    const endTimeFormatted = testEndTime.toLocaleString();
+  const calculateAccuracy = () => {
+    if (totalQuestions === 0) return 0;
+    return (correctCount / totalQuestions) * 100;
+  };
 
-    // Prepare file content including correct/incorrect count, time, start/end date and time
-    const data = `Correct Answers: ${correctCount}\nIncorrect Answers: ${wrongCount}\nTotal Time Spent: ${totalTestDuration.toFixed(2)} seconds\nAverage Time Per Question: ${calculateAverageTime()} seconds\nTest Start Time: ${startTimeFormatted}\nTest End Time: ${endTimeFormatted}`;
+  const handleSubmit = async () => {
+    const testEndTime = new Date();
+    const totalTestDuration = (testEndTime - testStartTime) / 1000;
 
-    const blob = new Blob([data], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
+    const rawAccuracy = calculateAccuracy();
+    const rawAvgTime = calculateAverageTime();
 
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'TEST_ADDITION_RESULTS.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
+    const testResults = {
+      test_name: testName,
+      student_name: studentName,
+      test_duration: parseFloat(totalTestDuration.toFixed(2)),
+      total_questions: totalQuestions,
+      correct_answers: correctCount,
+      wrong_answers: wrongCount,
+      accuracy: isNaN(rawAccuracy) ? 0 : parseFloat(rawAccuracy.toFixed(2)),
+      average_time_per_question: isNaN(rawAvgTime) ? 0 : parseFloat(rawAvgTime.toFixed(2)),
+      time_per_question: timePerQuestion.map(t => parseFloat(t.toFixed(2))),
+      mistakes_summary: mistakesSummary,
+      difficulty_level: 'Easy',
+      test_status: 'Completed',
+      test_date: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/test-progress/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(testResults),
+      });
+
+      if (response.ok) {
+        console.log('Test results submitted successfully');
+        // navigate('/assessment');
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to submit test results:', errorData);
+      }
+    } catch (error) {
+      console.error('Error submitting test results:', error);
+    }
   };
 
   return (
     <div>
       <Navbar />
-
       <div className="test-add-container">
         <div className="score-display">
           Correct: {correctCount} | Incorrect: {wrongCount}
         </div>
 
         <div className="content">
-          <h1>Addition Test</h1>
+          <h1>{testName}</h1>
 
           <div className="numbers">
-            <div className="number-box">
-              <span className="number">{num1}</span>
-              <div className="bee-images">{renderDuckImages(num1)}</div>
-            </div>
-
-            <span className="plus-sign">+</span>
-
-            <div className="number-box">
-              <span className="number">{num2}</span>
-              <div className="bee-images">{renderDuckImages(num2)}</div>
-            </div>
-
-            <span className="equals-sign">=</span>
-
+            <span className="number">{num1}</span> + <span className="number">{num2}</span> =
             <input
               type="number"
               min="0"
@@ -135,31 +143,18 @@ const TestAdd = () => {
           <button className="check-button" onClick={checkAnswer}>Check Answer</button>
 
           {isCorrect !== null && (
-            <div className="result">
-              {isCorrect ? (
-                <div className="correct">
-                  <span className="result-number">Correct!</span>
-                  <div className="total-ducks">
-                    {renderDuckImages(num1 + num2)}
-                  </div>
-                </div>
-              ) : (
-                <span className="result-number incorrect">Incorrect. Try again!</span>
-              )}
+            <div className={`result ${isCorrect ? 'correct' : 'incorrect'}`}>
+              {isCorrect ? 'Correct!' : 'Incorrect. Try again!'}
             </div>
           )}
 
           <button className="next-button" onClick={generateNewNumbers}>Next</button>
 
           <div className="exit-button-container">
-          <button
-            onClick={handleExit}
-            className="exit-button"
-          >
-            Exit
-          </button>
-        </div>
-          <SubmitButton onClick={() => downloadScoresToFile(totalTimeSpent, testStartTime, new Date())}/>
+            <button onClick={handleExit} className="exit-button">Exit</button>
+          </div>
+
+          <SubmitButton onClick={handleSubmit} />
         </div>
       </div>
     </div>

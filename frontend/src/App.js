@@ -29,6 +29,7 @@ import ProfilePage from './pages/profilepage';
 // import { StudentProvider } from './context/StudentContext';
 // import testresultspage from './pages/testresultpage'
 import TestResultPage from './pages/testresultpage';
+import LearnStories from './pages/learnstories';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/vowels" element={<LearnVowelsPage/>} />
         <Route path="/threeletterwords" element={<LearnThreeLetterWordsPage />} />
         <Route path='/Everydaysentences' element={<DailyNecessorySentencesPage />} />
+        <Route path='/SmallStories' element={<LearnStories/>}/>
         <Route path="/numbertest" element={<NumberTest />} /> {/* Add route for NumberTest */}
         <Route path="/engtest" element={<EngTest />} /> {/* Add route for EngTest */}
         <Route path="/learneng" element={<LearnEng />} />

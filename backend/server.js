@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors'); 
 const studentRoutes = require('./routes/student'); // Import student routes
 const courseRoutes = require('./routes/courseRoutes');
-
+const testProgress = require('./routes/testProgress');
 
 const app = express();
 app.use(cors()); 
@@ -18,6 +18,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 // Use the student routes
 app.use('/api/student', studentRoutes);  // Setup /api/student route
 app.use('/api/courseRoutes', courseRoutes);
+app.use('/api/test-progress', testProgress);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

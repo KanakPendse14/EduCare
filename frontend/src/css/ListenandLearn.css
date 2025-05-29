@@ -1,5 +1,7 @@
 .listen-and-learn-page {
-    padding: 20px;
+    background-color: #d6f0ff; /* Light blue background */
+    min-height: 100vh; /* Full screen height */
+    padding: 100px 20px 20px; /* Top padding increased to avoid overlap with navbar */
     text-align: center;
 }
 
@@ -15,6 +17,7 @@
     padding: 15px;
     margin: 10px;
     width: 200px;
+    background-color: #fff; /* White background for each course card */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
@@ -44,23 +47,18 @@
     background-color: #0056b3;
 }
 
-
-/* Add this to your Navbar's CSS */
+/* Navbar styling */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000; /* Ensures the navbar stays above other content */
-    background-color: #fff; /* Or your preferred background color */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better visibility */
-  }
-  
-  /* Add padding to the top of the main content to prevent overlap */
-  .listen-and-learn-page {
-    padding-top: 80px; /* Adjust this value based on the height of your navbar */
-  }
-  /* Add this new class */
+    background-color: #fff; /* Navbar remains white */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+/* Spacer after navbar */
 .section-spacer {
-    height: 50px; /* Adjust the height as needed for more or less space */
-  }
+    height: 50px; /* Adds spacing between sections */
+}

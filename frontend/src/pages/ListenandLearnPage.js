@@ -43,7 +43,7 @@ const ListenandLearnPage = () => {
           <CourseBlock 
             title="Stories" 
             description="Engage with short stories to enhance listening skills."
-            path="/Everydaysentences"
+            path="/SmallStories"
           />
           <CourseBlock 
             title="Everyday Phrases" 
